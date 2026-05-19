@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>Guessing Game — Join or Create</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="card center">
+    <h1>Guessing Duel</h1>
+    <input id="name" placeholder="Enter your name" maxlength="20">
+    <div class="row">
+      <button id="createBtn">Create Room</button>
+      <button id="joinBtn" class="ghost">Join Room</button>
+    </div>
+    <div id="createArea" class="hidden">
+      <label>Select Theme</label>
+      <select id="theme">
+        <option value="Football">Football</option>
+        <option value="Food">Food</option>
+      </select>
+      <button id="doCreate">Create</button>
+    </div>
+    <div id="joinArea" class="hidden">
+      <input id="roomCode" placeholder="Room code">
+      <button id="doJoin">Join</button>
+    </div>
+    <p class="muted">Mobile-friendly. Room seats 2 only.</p>
+  </div>
+
+<script src="/static/app.js"></script>
+<script>
+const on = (s,f)=>document.querySelector(s).addEventListener('click',f);
+on('#createBtn',()=>{document.getElementById('createArea').classList.remove('hidden');document.getElementById('joinArea').classList.add('hidden')});
+on('#joinBtn',()=>{document.getElementById('joinArea').classList.remove('hidden');document.getElementById('createArea').classList.add('hidden')});
+on('#doCreate', async ()=>{
+  const name=document.getElementById('name').value.trim();
+  const theme=document.getElementById('theme').value;
+  if(!name){alert('Enter name');return;}
+  const res=await fetch('/create_room',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,theme})});
+  const j=await res.json();
+  if(j.ok) location.href='/room/'+j.code+'?name='+encodeURIComponent(name);
+  else alert(j.error||'Error');
+});
+on('#doJoin', async ()=>{
+  const name=document.getElementById('name').value.trim();
+  const code=document.getElementById('roomCode').value.trim().toUpperCase();
+  if(!name || !code){alert('Enter name and code');return;}
+  const res=await fetch('/join_room',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,code})});
+  const j=await res.json();
+  if(j.ok) location.href='/room/'+j.code+'?name='+encodeURIComponent(name);
+  else alert(j.error||'Error');
+});
+</script>
+</body>
+</html>

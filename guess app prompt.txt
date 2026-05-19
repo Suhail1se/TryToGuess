@@ -1,0 +1,11 @@
+html, css, js, flask (python), SQLite guessing app (modern design for mobile (portrait))
+-when people access the web site they get asked to enter their names
+-then they either create a room or join a room using a code (when some one creates a room he receives a code that he can coppy and send it) (the room fits only two people!)
+-the lobby host (who created the room) select a theme before starting the game (he can start only if theres some one in the room)
+***Concept of the game*** : each one recieve an item randomly and each one try to guess the item that they other received, the room is a chat, they chat and ask questions trying to get a clue of the mysterious item, it goes by turn, player 1 can ask any question and player 2 can only respond by "yes" or "no", then vice verca, the first one to guess the other one item wins and then the round is over, then the host can choose to start a new game or end the lobby.
+-for now add only two themes, "Football" and "Food"
+***Football items*** : (FC Barcelona, Real Madrid, Manchester United, Liverpool FC, Etoile du Sahel, Esperance de Tunis, Club Africain, CSS)
+***Food items*** : (Pizza, Spagetti, CousCous, Burger, Ojja, Salad)
+(Ill add the pictures of the items my self just make a placeholder for me)
+________GIVE ME THE FULL CODE_______
+____IM GOING TO HOST THE WEBSITE ON RENDER DEPLOY__________

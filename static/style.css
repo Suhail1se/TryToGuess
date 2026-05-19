@@ -1,0 +1,20 @@
+:root{
+  --bg:#0f1724; --card:#0b1220; --accent:#00c2a8; --muted:#9aa6b2; --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{margin:0;background:linear-gradient(180deg,#071024,#081428);color:#e6eef6;min-height:100vh}
+.topbar{padding:12px;background:linear-gradient(90deg,rgba(0,0,0,0.2),transparent);display:flex;align-items:center;justify-content:center}
+.card{max-width:420px;margin:28px auto;padding:18px;background:var(--card);border-radius:14px;box-shadow:0 6px 24px rgba(2,6,23,0.6);text-align:center}
+.center{margin-top:10vh}
+input,select,button{font-size:16px;padding:10px;border-radius:10px;border:0;outline:none}
+input,select{width:100%;margin:8px 0;background:var(--glass);color:inherit}
+button{background:var(--accent);color:#022;cursor:pointer}
+button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.row{display:flex;gap:8px}
+.hidden{display:none}
+.muted{color:var(--muted);font-size:13px}
+
+.content{padding:14px;display:flex;flex-direction:column;gap:12px;max-width:640px;margin:12px auto}
+.panel{background:var(--card);padding:12px;border-radius:12px}
+#playersList{list-style:none;padding:0;margin:8px 0}
+#playersList li{padding:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:8px;margin-bottom:6px;display:flex;justify-content:space-between}

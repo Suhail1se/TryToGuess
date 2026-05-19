@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>Lobby</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div id="roomInfo">Room: {{ code }}</div>
+  </div>
+
+  <div class="content">
+    <div class="panel" id="playersPanel">
+      <h3>Players</h3>
+      <ul id="playersList"></ul>
+      <div id="hostControls" class="hidden">
+        <label>Select Theme</label>
+        <select id="hostTheme">
+          <option value="Football">Football</option>
+          <option value="Food">Food</option>
+        </select>
+        <button id="startGame">Start Game</button>
+        <button id="endLobby" class="ghost">End Lobby</button>
+      </div>
+    </div>
+
+    <div class="panel" id="chatPanel">
+      <h3>Room Chat</h3>
+      <div id="messages" class="messages"></div>
+      <div class="inputRow">
+        <input id="chatInput" placeholder="Ask a question or guess" autocomplete="off">
+        <button id="askBtn">Ask</button>
+        <button id="guessBtn">Guess</button>
+      </div>
+      <div class="responseRow hidden" id="responseRow">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+      <div class="info" id="turnInfo"></div>
+      <div class="info" id="yourItemBox"></div>
+    </div>
+  </div>
+
+<script>
+const ROOM = '{{ code }}';
+const urlParams = new URLSearchParams(window.location.search);
+const NAME = urlParams.get('name') || 'Guest';
+</script>
+<script src="/static/app.js"></script>
+</body>
+</html>
